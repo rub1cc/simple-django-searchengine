@@ -1,0 +1,15 @@
+<nav class="pagination is-small is-centered" role="navigation" aria-label="pagination">
+    <a href="?q={{ search_terms }}&amp;p={{ prev_page }}" class="pagination-previous">
+        <i class="fa fa-angle-double-left"></i>
+    </a>
+    <a href="?q={{ search_terms }}&amp;p={{ next_page }}" class="pagination-next">
+        <i class="fa fa-angle-double-right"></i>
+    </a>
+    <ul class="pagination-list">
+        {% for page in pages %}
+        <li>
+            <a class="pagination-link {% if current_page == page %}is-current{% endif %}" href="?q={{ search_terms }}&amp;p={{ page }}">{{ page }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

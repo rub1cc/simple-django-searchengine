@@ -1,0 +1,59 @@
+{% extends 'googlesearch/base.html' %} {% block content %}
+<section class="hero is-white is-fullheight">
+
+    <div id="particles-js"></div>
+
+    <div class="text">
+        <h1>Particles Background</h1>
+        <p>Using
+            <a href="https://github.com/VincentGarreau/particles.js/">ParticlesJS</a> and well.. that's about it, actually ¯\_(ツ)_/¯</p>
+    </div>
+
+
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="is-size-3 text-logo">
+                <strong>tkcbi</strong>search</h1>
+            <br>
+            <br>
+            <div class="columns">
+                <div class="column is-6-desktop is-offset-3-desktop">
+                    <form action="{% url 'google-search-view' %}" method="get">
+                        <div class="field">
+                            <div class="control has-icons-right">
+                                <input class="input is-medium" type="text" autofocus="true" name="q" id="search-input">
+                                <div class="output"></div>
+                                <span class="icon is-medium is-right">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="control has-text-centered">
+                            <input class="button is-light is-medium" type="submit" value="Pencarian">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p class="has-text-grey">
+                    The search engine that built with
+                    <i class="fa fa-heart"></i> for education
+                </p>
+                <p class="has-text-grey">
+                    &copy; copyright.
+                    <strong>TKCBI</strong>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</section>
+
+
+
+{% endblock %}

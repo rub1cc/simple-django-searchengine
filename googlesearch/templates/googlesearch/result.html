@@ -1,0 +1,56 @@
+{% extends 'googlesearch/base.html' %} {% block content %}
+<section class="hero is-light" id="result">
+
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column is-1">
+                <form action="">
+                    <div class="field">
+                        <div class="control">
+                            <a href="/" class="title is-3" style="font-family: 'Righteous';font-weight: 300">tkcbi</a href="/">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="column is-6">
+                <form action="">
+                    <div class="field is-grouped">
+                        <div class="control has-icons-right is-expanded">
+                            <input class="input" type="text" autofocus="true" name="q" id="search-input" value={{search_terms}}>
+                            <div class="output"></div>
+                        </div>
+                        <div class="control has-text-centered">
+                            <button class="button is-blue" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="hero is-white">
+    <div class="hero-body" style="padding-top: 1em;">
+        <div class="columns">
+            <div class="column is-6 is-offset-1">
+                {% load search_tags %}
+
+                <p style="padding-left:10px" class="has-text-grey">
+                    <b>{{ total_results }}</b> hasil untuk
+                    <b class="search-terms">{{ search_terms }}</b>
+                </p>
+                {% if items %} {% include 'googlesearch/results_list.html' %} {% endif %}
+
+                <div class="">
+                    {% show_pagination %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

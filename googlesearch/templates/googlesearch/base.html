@@ -1,0 +1,72 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TKCBI Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+
+    <link rel="stylesheet" href="{% static 'googlesearch/css/app.css' %}">
+
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+</head>
+
+<body>
+    {% block content %} {% endblock %}
+
+    <script defer src="{% static 'googlesearch/js/particle-js.min.js' %}"></script>
+    <script defer src="{% static 'googlesearch/js/app.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("#search-input").on("keyup", function (e) {
+                e.stopPropagation();
+                $(".output").html("");
+                $(".output")
+                    .stop()
+                    .show()
+                    .addClass("active");
+                var searchField = $(this).val();
+                var regEx = new RegExp(searchField, "i");
+
+                $.getJSON("http://suggestqueries.google.com/complete/search?q=" + $("#search-input").val() + "&client=firefox&callback=?", function (data) {
+                    $.each(data[1], function (key, value) {
+                        $(".output").append("<a onClick='setInput(\"" + value + "\")' class='list'>" + value + "</a>");
+                    });
+                });
+            });
+
+            $(document).on("click", function (e) {
+                e.stopPropagation();
+                $(".output")
+                    .stop()
+                    .html("")
+                    .hide()
+                    .removeClass("active");
+            });
+
+            $("#search-input").on("click", function (e) {
+                e.stopPropagation();
+            });
+            $(".output").on("click", function (e) {
+                e.stopPropagation();
+            });
+        });
+
+        function setInput(suggest) {
+            $("#search-input").val(suggest);
+            $(".output")
+                .stop()
+                .html("")
+                .hide()
+                .removeClass("active");
+        }
+
+    </script>
+</body>
+
+</html>

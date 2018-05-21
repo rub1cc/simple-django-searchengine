@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Righteous');
+
+.input:focus {
+    border-color: transparent;
+}
+
+#result .hero-body {
+  padding: 24px;
+}
+
+.search-results li {
+  margin-bottom: 5px;
+}
+
+.search-results li a {
+  padding: 7px 10px;
+  border-radius: 5px;
+  display: block;
+}
+
+.search-results li a:hover {
+  background-color:#F5F5F5;
+}
+
+.hero.is-white .pagination-link.is-current  {
+  color: white !important;
+}
+/* ---- reset ---- */
+
+body {
+    margin: 0;
+    font:normal 75% 'Open Sans', Arial, Helvetica, sans-serif;
+  }
+
+.text-logo strong {
+  font-family: 'Righteous' !important;
+  font-size: 250%;
+  font-weight: 300;
+}
+
+  canvas {
+    display: block;
+    vertical-align: bottom;
+  }
+  
+  /* ---- particles.js container ---- */
+  
+  #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+
+
+  .output.active {
+    position: absolute;
+    z-index: 100;
+    margin-top: 5px;
+    background: #fff;
+    width: 100%;
+    padding: 5px;
+    max-height: 200px;
+    overflow-y: scroll;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.11);
+  }
+  
+  .list:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
+  
+  .list {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #333;
+    padding: 15px 5px;
+    font-weight: 600;
+  }
+  
+  .list:hover {
+    color: yellowgreen;
+  }
+  
+
